@@ -9,6 +9,8 @@ ENV NPM_CONFIG_CACHE=/code/.npm
 
 RUN npm install
 
+RUN npm link winston
+
 RUN npm install ts-node -g
 RUN npm install -g @nestjs/cli
 

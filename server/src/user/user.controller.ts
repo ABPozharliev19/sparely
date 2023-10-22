@@ -1,6 +1,7 @@
 import { Controller, Get, Req, UseGuards } from '@nestjs/common';
 import { ApiOAuth2, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from 'src/auth/google.strategy';
+import { logger } from 'src/logs/loki.logger';
 
 @ApiOAuth2(['email', 'profile'], 'oauth2')
 @ApiTags('Users')
@@ -11,6 +12,8 @@ export class UserController {
   @UseGuards(AuthGuard)
   @Get('profile')
   async login(@Req() request): Promise<any> {
+    logger.info('User profile requested', { userId: request.userId });
+
     return {
       id: request.userId,
       firstName: request.user.given_name,

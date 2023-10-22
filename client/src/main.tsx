@@ -9,8 +9,22 @@ import { store } from "./store.ts";
 
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
+import * as Sentry from "@sentry/react";
 
 const persistor = persistStore(store);
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+  integrations: [
+    new Sentry.BrowserTracing({
+      tracePropagationTargets: ["localhost", /^https:\/\/sparely\.app\/api/],
+    }),
+    new Sentry.Replay(),
+  ],
+  tracesSampleRate: 1.0,
+  replaysSessionSampleRate: 0.1,
+  replaysOnErrorSampleRate: 1.0,
+});
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
