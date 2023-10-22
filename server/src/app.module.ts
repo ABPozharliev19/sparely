@@ -5,6 +5,7 @@ import { UserController } from './user/user.controller';
 import { PaymentsModule } from './payments/payments.module';
 import { CampaignsModule } from './campaigns/campaigns.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ScheduleModule } from "@nestjs/schedule";
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    ScheduleModule.forRoot(),
     PaymentsModule,
     CampaignsModule,
   ],
