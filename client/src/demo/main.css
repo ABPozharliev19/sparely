@@ -40,7 +40,7 @@ header nav ul li:hover{color:#fff;background-color:#F47436;}
 header nav ul li:hover a{color:#fff;}
 header nav ul li:hover ul{display:block;}
  
-button, .button {background-color: transparent !important; border:solid 1px #5F3A16; border-radius: 20px; text-transform: uppercase; font-weight: 700; color: #5F3A16; }
+button, .button {background-color: transparent; border:solid 1px #5F3A16; border-radius: 20px; text-transform: uppercase; font-weight: 700; color: #5F3A16; }
 .table-container table th {background-color: #C5BAA9;}
 header .info {position: absolute; top:0; right:0; line-height: 40px; border-bottom:solid 1px #E8E8E8; padding-left: 100px;}
 
